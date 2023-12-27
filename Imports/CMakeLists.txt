@@ -10,7 +10,8 @@ qt6_add_qml_module(Imports
     URI "Imports"
     RESOURCE_PREFIX "/qt/qml"
     VERSION 1.0
-    QML_FILES Constants.qml
+    QML_FILES
+    SOURCES constants.h constants.cpp
 )
 
 

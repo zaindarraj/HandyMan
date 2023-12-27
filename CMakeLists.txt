@@ -21,6 +21,7 @@ qt_add_qml_module(appHandyMan
 add_subdirectory(Imports)
 add_subdirectory(Logic)
 
+add_subdirectory(UI)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
@@ -34,7 +35,7 @@ set_target_properties(appHandyMan PROPERTIES
 )
 
 target_link_libraries(appHandyMan
-    PRIVATE Qt6::Quick Importsplugin Logicplugin
+    PRIVATE Qt6::Quick Importsplugin Logicplugin UIplugin UIComponentplugin
 )
 
 include(GNUInstallDirs)
