@@ -72,6 +72,51 @@ Rectangle{
                     }
                 }
             }
+            Item{
+                Layout.fillWidth: true
+                Layout.preferredWidth: 1
+                Layout.preferredHeight: 300
+                ColumnLayout{
+                    anchors.fill: parent
+                    Item{
+                        width : 200
+                        Text{
+                            text : "Select the system stats to monitor!"
+                            wrapMode: Text.WordWrap
+                            width : parent.width
+                            font.bold: true
+                            font.pointSize: 16
+                            color : systemTheme.text
+
+                        }
+                    }
+
+                    Item{
+                        width : 200
+                        Text{
+                            text : "The selected stats will be monitored in respect to the general frequancy they change in."
+                            wrapMode: Text.WordWrap
+                            width : parent.width
+                            font.italic: true
+                            font.pointSize: 8
+
+                        }
+                    }
+                    Item{
+
+                        Button{
+                            text : qsTr("Finish")
+                        }
+                    }
+
+
+
+
+
+                }
+
+
+            }
         }
     }
 }
