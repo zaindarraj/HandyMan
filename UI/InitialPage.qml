@@ -13,7 +13,8 @@ Rectangle{
                 Layout.preferredWidth : parent.width/2
                 Layout.preferredHeight: parent.height/2
                 radius: 10
-                color : "slategray"
+                color : systemTheme.highlight
+
                 Image{
                     anchors.fill: parent
                     source: "./assets/Icon.png"
