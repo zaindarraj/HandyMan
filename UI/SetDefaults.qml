@@ -36,7 +36,7 @@ Rectangle{
     }
 
     Rectangle {
-        anchors.margins: 10
+        anchors.margins: 40
         anchors.fill: parent
         radius: 10
         color : systemTheme.highlight
@@ -46,10 +46,17 @@ Rectangle{
                 Layout.fillWidth: true
                 Layout.preferredWidth: 1
                 Layout.preferredHeight: 200
+
                 ListView{
                     spacing : 20
-                    width : 200
+                    width : 220
                     height : 300
+                    ScrollBar.vertical: ScrollBar {
+                         policy: ScrollBar.AlwaysOn
+                    }
+                    boundsBehavior: Flickable.StopAtBounds
+                    boundsMovement: Flickable.StopAtBounds
+
                     anchors.centerIn: parent
                     model : availableStats
                     delegate: Rectangle{
