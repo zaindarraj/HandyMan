@@ -36,7 +36,6 @@ Rectangle{
                 Layout.alignment: Qt.AlignCenter
                 Layout.bottomMargin: 20
                 Layout.preferredWidth: parent.width*0.3
-                onClicked: navStack.push(setDefaults)
         }
 
 
