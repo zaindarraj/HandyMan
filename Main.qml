@@ -24,12 +24,20 @@ Window {
         initialItem: initPage
     }
 
-    InitialPage{
-    id : initPage }
-
-    SetDefaults{
-        id : setDefaults
+    Component{
+        id : initPage
+        InitialPage{
+         }
     }
+
+
+
+    Component{
+        id : setDefaults
+        SetDefaults{
+         }
+    }
+
 
     color: systemTheme.base
 }

@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 Rectangle{
-    id : initialPage
     color : systemTheme.base
     //for full screen
 
