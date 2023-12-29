@@ -2,12 +2,10 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Imports
-
+import StatsManager
 Rectangle{
 
     color : systemTheme.base
-
-
 
     Rectangle {
         anchors.margins: 40
@@ -58,6 +56,13 @@ Rectangle{
                                             text: qsTr(name)
                                             leftPadding: indicator.width
                                             ButtonGroup.group: childGroup
+                                            onCheckStateChanged: {
+                                                    if(checkState === Qt.Checked){
+                                                        statsManager.addStat(uuid, parentBox.text, interval)
+                                                    }else{
+                                                        //Should edit remove method.
+                                                    }
+                                            }
                                         }
                                 }
                             }
@@ -98,6 +103,11 @@ Rectangle{
 
                         Button{
                             text : qsTr("Finish")
+                            onClicked: {
+                                // This is available in all editors.
+                                statsManager.startAll()
+                                navStack.push(homePage)
+                            }
                         }
                     }
 

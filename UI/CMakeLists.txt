@@ -12,6 +12,7 @@ qt6_add_qml_module(UI
     QML_FILES InitialPage.qml
     RESOURCES assets/Icon.png
     QML_FILES SetDefaults.qml
+    QML_FILES HomePage.qml
 )
 
 add_subdirectory(UI_Component)

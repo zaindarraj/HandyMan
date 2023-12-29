@@ -3,6 +3,7 @@ import UI
 import Constants
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
+import StatsManager
 Window {
     id : mainWindow
     minimumWidth: 640
@@ -12,11 +13,16 @@ Window {
     visible: true
     title :Constants.appName
 
+    StatsManager{
+        id : statsManager
+
+    }
 
     SystemPalette{
         id: systemTheme
         colorGroup: SystemPalette.Active
     }
+
 
     StackView{
         id : navStack
@@ -37,7 +43,11 @@ Window {
         SetDefaults{
          }
     }
-
+    Component{
+        id : homePage
+        HomePage{
+         }
+    }
 
     color: systemTheme.base
 }

@@ -7,24 +7,28 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QRegularExpression>
-#include <QHash>
+#include "statitem.h"
 class FileWorker : public QThread
 {
     Q_OBJECT
 public:
-    FileWorker(const QStringList& stats,  const int&& interval);
+    FileWorker(const int&interval);
     void run()override;
-    void addStat(const QString&& stat);
+    int getInterval()const;
+
 signals:
     void message(const QString& message);
 public slots :
-    void test_me(const QString& message);
+    void addStat(StatItem* statItem);
+    void removeStat(StatItem* statItem);
+
 private :
-    QHash<QString, int> m_statVal;
-    QStringList m_stats;
+    QList<StatItem*> m_statsItems;
     int m_interval; // in seconds.
     QFile m_meminfo = QFile("/proc/meminfo");
     QRegularExpression rx = QRegularExpression("\\d+");
+    QRegularExpression alpharx = QRegularExpression("(?<name>\\w+)");
+    QString getStringFromLine(const QString& line);
     int getNumberFromStat(const QString& statLine);
 
 };

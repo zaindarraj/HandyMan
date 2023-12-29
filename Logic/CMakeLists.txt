@@ -13,4 +13,6 @@ qt6_add_qml_module(Logic
     SOURCES fileworker.h fileworker.cpp
     SOURCES
     SOURCES template.cpp
+    SOURCES statsmanager.h statsmanager.cpp
+    SOURCES statitem.h statitem.cpp
 )
