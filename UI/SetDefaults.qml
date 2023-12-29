@@ -1,39 +1,13 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
-
+import Imports
 
 Rectangle{
 
     color : systemTheme.base
 
-    ListModel{
-        id : availableStats
-        ListElement{
-            name : "Total RAM"
-            uuid : "MemTotal"
-        }
-        ListElement{
-            name : "Total RAM"
-            uuid : "MemTotal"
-        }
-        ListElement{
-            name : "Total RAM"
-            uuid : "MemTotal"
-        }
-        ListElement{
-            name : "Total RAM"
-            uuid : "MemTotal"
-        }
-        ListElement{
-            name : "Total RAM"
-            uuid : "MemTotal"
-        }
-        ListElement{
-            name : "Total RAM"
-            uuid : "MemTotal"
-        }
-    }
+
 
     Rectangle {
         anchors.margins: 40
@@ -58,16 +32,34 @@ Rectangle{
                     boundsMovement: Flickable.StopAtBounds
 
                     anchors.centerIn: parent
-                    model : availableStats
+                    model : StatsDataModel{}
                     delegate: Rectangle{
                             width : 200
-                            height : 50
                             radius: 10
                             color : systemTheme.button
-                            CheckBox{
-                                anchors.top: parent.top
-                                anchors.bottom : parent.bottom
-                                text : name
+                            implicitWidth : column.implicitWidth
+                            implicitHeight: column.implicitHeight
+                            Column{
+                                id : column
+                                ButtonGroup {
+                                       id: childGroup
+                                       exclusive: false
+                                       checkState: parentBox.checkState
+                                   }
+                                CheckBox {
+                                        id: parentBox
+                                        text: qsTr(name)
+                                        checkState: childGroup.checkState
+                                    }
+
+                                Repeater{
+                                    model : subItems
+                                    CheckBox {
+                                            text: qsTr(name)
+                                            leftPadding: indicator.width
+                                            ButtonGroup.group: childGroup
+                                        }
+                                }
                             }
                     }
                 }

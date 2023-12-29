@@ -12,6 +12,7 @@ qt6_add_qml_module(Imports
     VERSION 1.0
     QML_FILES
     SOURCES constants.h constants.cpp
+    QML_FILES StatsDataModel.qml
 )
 
 

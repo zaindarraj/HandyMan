@@ -11,6 +11,7 @@ qt6_add_qml_module(UIComponent
     VERSION 1.0
     QML_FILES
     assets/background.jpeg
+    QML_FILES SetDefaultsDelegate.qml
 
 )
 
