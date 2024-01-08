@@ -8,7 +8,7 @@ ListModel{
             ListElement{
                 name : "Total RAM"
                 uuid : "MemTotal"
-                interval : 3600
+                interval : -1
             },
             ListElement{
                 name : "Available RAM"

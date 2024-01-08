@@ -53,6 +53,10 @@ void FileWorker::run(){
             }
         }
 
+        if(m_interval == -1){
+            exit();
+            break;
+        }
 
         m_meminfo.close();
         qDebug()<<m_interval;

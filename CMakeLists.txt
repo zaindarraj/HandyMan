@@ -4,7 +4,7 @@ project(HandyMan VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
+find_package(Qt6 6.4 REQUIRED COMPONENTS Quick Widgets)
 set(CPACK_PACKAGE_NAME "HandyMan")
 set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
 set(CPACK_PACKAGE_CONTACT shithedark@gmail.com)
@@ -44,7 +44,7 @@ set_target_properties(appHandyMan PROPERTIES
 )
 
 target_link_libraries(appHandyMan
-    PRIVATE Qt6::Quick Importsplugin Logicplugin UIplugin UIComponentplugin
+    PRIVATE Qt6::Quick Importsplugin Logicplugin UIplugin UIComponentplugin Qt6::Widgets
 )
 
 include(GNUInstallDirs)

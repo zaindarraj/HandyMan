@@ -8,8 +8,8 @@ StatsManager::StatsManager(QObject *parent)
 
 void StatsManager::addStat(const QString& stat, const QString& family,const int& interval){
     StatItem* statItem =
-       new StatItem(family,stat);
-
+       new StatItem(family,stat, this);
+    QQmlEngine::setObjectOwnership(statItem, QQmlEngine::CppOwnership);
     //Add it to StatManager
     m_statItems.append(statItem);
     //find corrusponding file worker
@@ -22,6 +22,7 @@ void StatsManager::addStat(const QString& stat, const QString& family,const int&
     }
     //Create a new file worker
     FileWorker* fileWorker =  new FileWorker(interval);
+    fileWorker->setParent(this);
     fileWorker->addStat(statItem);
     m_fileWorkers.append(fileWorker);
     emit listChanged(m_statItems);

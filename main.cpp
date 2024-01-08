@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <Logic/fileworker.h>
 #include <Imports/constants.h>
+#include <QApplication>
 #include "Logic/statsmanager.h"
 static QObject *example_qobject_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
@@ -13,7 +14,7 @@ static QObject *example_qobject_singletontype_provider(QQmlEngine *engine, QJSEn
 }
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication  app(argc, argv);
 
     QQmlApplicationEngine engine;
     qmlRegisterType<StatItem*>("StatItem", 1, 0, "StatItem");
