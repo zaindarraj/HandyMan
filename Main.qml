@@ -13,32 +13,9 @@ ApplicationWindow {
     visible: true
     title :Constants.appName
 
-    property IntValidator intValidator: IntValidator{}
 
 
-    StateGroup{
-        id : stateGroup
-        state : "SmallWindow"
-        states: [
-            State{
-                name : "Maximize"
-                PropertyChanges{
-                    target: mainWindow;maximumWidth:intValidator.top;maximumHeight: intValidator.top
 
-                }
-           },
-            State{
-                name : "SmallWindow"
-                PropertyChanges{
-                    target: mainWindow;maximumWidth:640;maximumHeight:480
-
-                }
-           }
-        ]
-        function maximize(){
-            stateGroup.state = "Maximize"
-        }
-    }
 
     StatsManager{
         id : statsManager
@@ -55,25 +32,27 @@ ApplicationWindow {
         id : navStack
         anchors.fill: parent
         initialItem: initPage
+
     }
 
     Component{
         id : initPage
-        InitialPage{
-         }
+        InitialPage{}
     }
 
 
 
     Component{
         id : setDefaults
-        SetDefaults{
-         }
+        SetDefaults{}
     }
     Component{
         id : homePage
         HomePage{
-
+            Component.onCompleted: {
+                mainWindow.maximumWidth =  Screen.desktopAvailableWidth
+                mainWindow.maximumHeight = Screen.desktopAvailableHeight
+            }
          }
     }
 

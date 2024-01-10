@@ -21,11 +21,6 @@ Rectangle{
         }
     ]
 
-    Component.onCompleted: {
-        stateGroup.maximize()
-        state : "Maximize"
-
-    }
 
     //for full screen
     GridLayout{
